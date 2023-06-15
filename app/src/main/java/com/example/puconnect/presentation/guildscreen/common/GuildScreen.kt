@@ -39,6 +39,7 @@ fun GuildScreen(
     navController: NavHostController
 ) {
     Scaffold (
+        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 title = {

@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -43,13 +44,11 @@ fun GuildScrollableRow(
 
     LazyRow(
         modifier = Modifier
-            .fillMaxWidth(screenWidth * 0.08f),
-
-        horizontalArrangement = Arrangement.spacedBy(24.dp)
+            .fillMaxWidth(),
     ) {
-        item {
-            Spacer(modifier = Modifier.width(1.dp))
-        }
+//        item {
+//            Spacer(modifier = Modifier.width(1.dp))
+//        }
 
         items(guildList) {guild->
             GuildItem(
@@ -67,11 +66,17 @@ fun GuildItem(
     onClick: () -> Unit,
 ) {
 
-    Box (
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        HorizontalSpacer(width = 20)
+
+    Box(
         modifier = Modifier
             .width(61.dp)
             .height(69.dp)
-    ){
+    ) {
 
 
         Box(
@@ -83,7 +88,9 @@ fun GuildItem(
             contentAlignment = Alignment.Center
         ) {
             Icon(
-                modifier = Modifier.size(32.dp).clickable { onClick() },
+                modifier = Modifier
+                    .size(32.dp)
+                    .clickable { onClick() },
                 imageVector = ImageVector.vectorResource(id = iconId),
                 contentDescription = "code guild",
                 tint = Color.White
@@ -99,6 +106,9 @@ fun GuildItem(
             color = Color.Black
         )
     }
+        HorizontalSpacer(width = 4)
+
+}
 
 }
 

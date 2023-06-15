@@ -12,13 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.puconnect.mockdata.network.NetworkUserData
-import com.example.puconnect.mockdata.network.netUser1
 import com.example.puconnect.ui.theme.textFieldBorder
 
 
 @Composable
 fun NetworkUserInfo(
+    navController: NavHostController,
     networkUserData: NetworkUserData
 ) {
 
@@ -38,7 +39,7 @@ fun NetworkUserInfo(
 
         ) {
 
-            NetworkUserInfoSec1(networkUserData = networkUserData)
+            NetworkUserInfoSec1(networkUserData = networkUserData, navController = navController)
 
             NetworkUserInfoSec2(networkUserData = networkUserData)
 
@@ -59,5 +60,5 @@ fun NetworkUserInfo(
 @Preview(showSystemUi = false, showBackground = true)
 @Composable
 fun NetworkUserInfoPreview() {
-    NetworkUserInfo(networkUserData = netUser1)
+   // NetworkUserInfo(networkUserData = netUser1)
 }

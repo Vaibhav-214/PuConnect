@@ -18,6 +18,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,6 +35,7 @@ import com.example.puconnect.presentation.homescreen.components.FloatingActionBu
 import com.example.puconnect.presentation.homescreen.components.GuildScrollableRow
 import com.example.puconnect.presentation.homescreen.components.SearchBar
 import com.example.puconnect.presentation.homescreen.components.UserChatItem
+import com.example.puconnect.presentation.navigation.Destinations
 import com.example.puconnect.ui.theme.gilroy
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
@@ -44,6 +46,7 @@ fun HomeScreen(
     padding: PaddingValues
    // bottomNavigationBar: @Composable () -> Unit,
 ) {
+
     
     val screenHeight = LocalConfiguration.current.screenHeightDp
 
@@ -66,7 +69,9 @@ fun HomeScreen(
                     .align(Alignment.TopCenter)
 
             ) {
-                SearchBar()
+                Spacer(modifier = Modifier.height((screenHeight * 0.015f).dp))
+
+                SearchBar(navController = navController)
 
                 Spacer(modifier = Modifier.height((screenHeight * 0.015f).dp))
 
@@ -113,8 +118,10 @@ fun HomeScreen(
             FloatingActionButton(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .offset(y = -(screenHeight * 0.109f).dp, x = -(screenWidth * 0.051f).dp),
-                onClick = {}
+                    .offset(y = -(113).dp, x = -(20).dp),
+                onClick = {
+                    navController.navigate(Destinations.NewDiscussionScreen.route)
+                }
             )
 
 

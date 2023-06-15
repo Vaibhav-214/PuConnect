@@ -2,10 +2,58 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="BottomChatBoxPreview">
+      <entry key="CreateDiscussionPreview">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2023-06-14T19:23:21.691967Z" />
+        </State>
+      </entry>
+      <entry key="EventScreenpreview">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2023-06-15T07:26:34.012855Z" />
+        </State>
+      </entry>
+      <entry key="MessageScreenPreview">
         <State />
       </entry>
-      <entry key="ChatScreenPreview">
+      <entry key="PReview">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2023-06-15T19:20:10.561007Z" />
+        </State>
+      </entry>
+      <entry key="SearchBarPreview">
         <State />
       </entry>
       <entry key="app">
@@ -16,12 +64,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_32.avd" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_33.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2023-06-14T10:47:55.248068Z" />
+          <timeTargetWasSelectedWithDropDown value="2023-06-15T20:59:51.096371Z" />
         </State>
       </entry>
     </value>

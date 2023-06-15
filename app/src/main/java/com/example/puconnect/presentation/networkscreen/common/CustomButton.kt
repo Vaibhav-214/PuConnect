@@ -77,15 +77,19 @@ fun CustomButton(
 fun CustomButton2(
     onClick: () -> Unit,
     title: String,
+    icon: Int = R.drawable.paperplanetilt,
+    modifier: Modifier = Modifier,
+    buttonColor: Color = Color.Black,
+    contentColor: Color = Color.White
 ) {
 
     Box (
-        modifier = Modifier
+        modifier = modifier
             .height(36.dp)
             .width(94.dp)
             .background(
                 shape = RoundedCornerShape(4.dp),
-                color = Color.Black
+                color = buttonColor
             )
             .clickable { onClick() },
         contentAlignment = Alignment.Center
@@ -101,16 +105,16 @@ fun CustomButton2(
                 fontWeight = FontWeight.W500,
                 fontSize = 12.sp,
                 lineHeight = 14.56.sp,
-                color = Color.White
+                color = contentColor
             )
 
             Spacer(modifier = Modifier.width(8.dp))
 
             Icon(
                 modifier = Modifier.size(12.dp),
-                imageVector = ImageVector.vectorResource(id = R.drawable.paperplanetilt),
+                imageVector = ImageVector.vectorResource(id = icon),
                 contentDescription = null,
-                tint = Color.White
+                tint = contentColor
                 )
         }
     }

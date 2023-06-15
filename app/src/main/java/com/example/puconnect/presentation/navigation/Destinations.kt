@@ -2,6 +2,14 @@ package com.example.puconnect.presentation.navigation
 
 import com.example.puconnect.R
 
+
+object Graphs {
+    const val AUTH = "auth"
+    const val MAIN = "main"
+    const val SPLASH = "splash"
+}
+
+
 sealed class Destinations(val route: String) {
     object HomeScreen: Destinations("home")
     object CodingGuildScreen: Destinations("code")
@@ -12,6 +20,18 @@ sealed class Destinations(val route: String) {
     object ChatScreen: Destinations("engage/{queId}") {
         fun createRoute(queId: String) = "engage/$queId"
     }
+
+    object DirectMessageScreen: Destinations("directMessage/{name}/{photoId}") {
+        fun createRoute(name: String, photoId: String) = "directMessage/$name/$photoId"
+    }
+
+    object NotificationScreen: Destinations("notification")
+
+    object NewMessageScreen: Destinations("message")
+
+    object NewDiscussionScreen: Destinations("discussion")
+
+
 }
 
 

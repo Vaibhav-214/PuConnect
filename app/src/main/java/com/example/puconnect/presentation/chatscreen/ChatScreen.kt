@@ -45,6 +45,7 @@ fun ChatScreen(
     navController: NavHostController
 ) {
     Scaffold (
+        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 title = {

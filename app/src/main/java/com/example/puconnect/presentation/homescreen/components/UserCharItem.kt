@@ -149,7 +149,7 @@ fun UserChatItemSec3(
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding( 8.dp),
+            .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
 
@@ -278,11 +278,5 @@ fun GuildItemChip(
 @Preview(showSystemUi = false, showBackground = true)
 @Composable
 fun UserChatItemSec1Preview() {
-//    UserChatItemSec2(question = "How i can use Chatgpt to code my figma design?",
-//        relatedGuilds =listOf<Guild>(
-//        aiGuild, designGuild
-//    ) )
-   // UserChatItemSec3(engageCount = 9)
-    
-    //UserChatItem(userQueData = siddhiQue)
+    GuildItemChip(iconId = R.drawable.code, labelName = "Code Guild")
 }

@@ -25,9 +25,13 @@ import com.example.puconnect.ui.theme.gilroy
 import com.example.puconnect.ui.theme.textFieldBorder
 
 @Composable
-fun MyApplications() {
+fun MyApplications(
+    illustation: Int = R.drawable.applicationsempty,
+    title: String = "No applications found",
+    modifier: Modifier = Modifier
+) {
         Column (
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
@@ -36,14 +40,14 @@ fun MyApplications() {
                 modifier = Modifier
                     .width(176.dp)
                     .height(147.dp),
-                imageVector = ImageVector.vectorResource(id = R.drawable.applicationsempty),
+                imageVector = ImageVector.vectorResource(id = illustation),
                 contentDescription = null
             )
 
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "No applications found",
+                text = title,
                 fontFamily = gilroy,
                 fontWeight = FontWeight.W500,
                 fontSize = 14.sp,

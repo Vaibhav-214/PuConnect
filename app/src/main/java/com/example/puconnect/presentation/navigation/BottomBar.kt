@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -33,23 +34,31 @@ fun BottomBar(
 
     val currentDestination = navBackStackEntry?.destination
 
-    BottomAppBar (
-        containerColor = Color.White
-    ){
+    val bottomBarDestination = bottomScreens.any {bottomBarScreen ->
+        bottomBarScreen.route == currentDestination?.route
+    }
 
-        Row(
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier
-                .fillMaxWidth()
-            //.padding(horizontal = (screenWidth*0.064f).dp),
+    if (bottomBarDestination) {
+        BottomAppBar (
+            containerColor = Color.White
+        ){
 
-        ) {
-            bottomScreens.forEach {screen->
-                AddItem(screen = screen, currentDestination = currentDestination, navController = navController)
+            Row(
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                modifier = Modifier
+                    .fillMaxWidth()
+                //.padding(horizontal = (screenWidth*0.064f).dp),
+
+            ) {
+                bottomScreens.forEach {screen->
+                    AddItem(screen = screen, currentDestination = currentDestination, navController = navController)
+                }
             }
+
         }
 
     }
+
 }
 
 
@@ -67,7 +76,9 @@ fun RowScope.AddItem(
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route
         } == true,
-        onClick = {navController.navigate(screen.route)}
+        onClick = {
+            navController.navigate(screen.route)
+        }
         )
 
 }

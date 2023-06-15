@@ -2,8 +2,8 @@ package com.example.puconnect.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
+val Purple80 = Color(0xFFFFFFFF)
+val PurpleGrey80 = Color(0xFFFFFFFF)
 val Pink80 = Color(0xFFEFB8C8)
 
 val Purple40 = Color(0xFF6650a4)
@@ -21,3 +21,7 @@ val addressColor = Color(0xff939393)
 
 val money1Color = Color(0xff09B734)
 val money2Color = Color(0xff09BA00)
+
+val chatGptcolor = Color(0xff00A67E)
+
+val swipeGreen = Color(0xff16db65)

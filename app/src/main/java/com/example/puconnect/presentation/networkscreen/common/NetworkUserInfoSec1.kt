@@ -24,9 +24,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
 import com.example.puconnect.R
 import com.example.puconnect.mockdata.network.NetworkUserData
 import com.example.puconnect.mockdata.network.netUser1
+import com.example.puconnect.presentation.navigation.Destinations
 import com.example.puconnect.ui.theme.addressColor
 import com.example.puconnect.ui.theme.gilroy
 import com.example.puconnect.ui.theme.textFieldBorder
@@ -34,6 +37,7 @@ import com.example.puconnect.ui.theme.textFieldBorder
 
 @Composable
 fun NetworkUserInfoSec1(
+    navController: NavHostController,
     networkUserData: NetworkUserData
 ) {
     Row (
@@ -101,7 +105,16 @@ fun NetworkUserInfoSec1(
 
         //Spacer(modifier = Modifier.weight(screenWidth*0.174f))
 
-        CustomButton2(onClick = {}, title = "Message")
+        CustomButton2(onClick = {
+                                navController
+                                    .navigate(Destinations
+                                        .DirectMessageScreen
+                                        .createRoute(
+                                            name = networkUserData.name,
+                                            photoId = networkUserData.profilePic.toString()
+                                        )
+                                    )
+        }, title = "Message")
 
 
     }
@@ -110,5 +123,5 @@ fun NetworkUserInfoSec1(
 @Preview(showSystemUi = false, showBackground = true)
 @Composable
 fun UserInfoPreview() {
-    NetworkUserInfoSec1(networkUserData = netUser1)
+   // NetworkUserInfoSec1(networkUserData = netUser1)
 }
