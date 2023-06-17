@@ -31,6 +31,9 @@ sealed class Destinations(val route: String) {
 
     object NewDiscussionScreen: Destinations("discussion")
 
+    object EditSkillsScreen: Destinations("editSkills")
+
+
 
 }
 
@@ -69,8 +72,8 @@ sealed class BottomBarScreen(
     )
 
     object ProfileScreen: BottomBarScreen(
-        route = "network",
-        title = "Network",
+        route = "profile",
+        title = "Profile",
         iconId = R.drawable.usercircle,
         filledIcon = R.drawable.usercircle
     )

@@ -69,11 +69,16 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.30.1")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.29.2-rc")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 
     implementation("androidx.navigation:navigation-compose:2.5.3")
+   // implementation("androidx.compose.material3:material3:1.2.0-alpha02")
+
+    //modalbottom sheet library from github because official one from material has some limitations for me
+    //and using material3 1.2.0-alpha02 gives error in my accompanist navigation
+    implementation("io.github.oleksandrbalan:modalsheet:0.5.0")
 
     implementation("androidx.compose.material:material:1.0.0-alpha07")
 

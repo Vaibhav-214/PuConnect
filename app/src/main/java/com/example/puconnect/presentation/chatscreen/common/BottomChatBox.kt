@@ -72,8 +72,6 @@ fun BottomChatBox() {
                 containerColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedLabelColor = Color.Transparent,
-                textColor = Color.Black,
-                placeholderColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             )

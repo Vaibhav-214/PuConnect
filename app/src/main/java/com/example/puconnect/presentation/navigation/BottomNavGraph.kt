@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import androidx.navigation.navigation
 import com.example.puconnect.mockdata.home.codeGuildQueList
 import com.example.puconnect.mockdata.home.designGuildQueList
 import com.example.puconnect.mockdata.home.siddhiQue
@@ -25,7 +24,12 @@ import com.example.puconnect.presentation.messagescreen.MessageScreen
 import com.example.puconnect.presentation.networkscreen.NetworkScreen
 import com.example.puconnect.presentation.notificationscreen.NewMessagesScreen
 import com.example.puconnect.presentation.notificationscreen.NotificationScreen
+import com.example.puconnect.presentation.profilescreen.ProfileScreen
+import com.example.puconnect.presentation.profilescreen.SkillCircles
+import com.example.puconnect.presentation.profilescreen.SkillsScreen
 import com.example.puconnect.presentation.workscreen.WorkScreen
+import com.example.puconnect.presentation.workscreen.common.NewBottomSheet
+import com.example.puconnect.presentation.workscreen.common.WorkScreenWithBottomSheet
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 
@@ -56,11 +60,10 @@ fun BottomNavGraph(navController: NavHostController, padding: PaddingValues) {
             route = BottomBarScreen.WorkScreen.route,
 
             ) {
-            WorkScreen(paddingValues = padding, navController = navController)
+           WorkScreen(paddingValues = padding, navController = navController)
         }
         composable(
             route = BottomBarScreen.EventsScreen.route,
-
             ) {
             EventsScreen(navController = navController, paddingValues = padding)
         }
@@ -69,7 +72,7 @@ fun BottomNavGraph(navController: NavHostController, padding: PaddingValues) {
             route = BottomBarScreen.ProfileScreen.route,
 
             ) {
-            NetworkScreen(padding = padding, navController = navController)
+            ProfileScreen(paddingValues = padding, navController = navController)
         }
 
         composable(
@@ -319,6 +322,29 @@ fun BottomNavGraph(navController: NavHostController, padding: PaddingValues) {
             }
             ) {
             CreateDiscussion(navController = navController)
+        }
+
+        composable(
+            route = Destinations.EditSkillsScreen.route,
+            exitTransition = {
+                slideOutHorizontally (
+                    animationSpec = tween(
+                        durationMillis = 300
+                    ),
+                    targetOffsetX = {1000}
+                ) + fadeOut(animationSpec = tween(300))
+
+            },
+            enterTransition = {
+                slideInHorizontally (
+                    animationSpec = tween(
+                        durationMillis = 300
+                    ),
+                    initialOffsetX = {1000}
+                ) + fadeIn(animationSpec = tween(300))
+            }
+        ) {
+           SkillsScreen(navController = navController)
         }
 
 

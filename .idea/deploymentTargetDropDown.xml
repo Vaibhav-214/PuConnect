@@ -2,7 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CreateDiscussionPreview">
+      <entry key="BottomSheet2Preview">
         <State>
           <targetSelectedWithDropDown>
             <Target>
@@ -15,8 +15,11 @@
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2023-06-14T19:23:21.691967Z" />
+          <timeTargetWasSelectedWithDropDown value="2023-06-16T14:43:07.967268Z" />
         </State>
+      </entry>
+      <entry key="CustomComponentPreview">
+        <State />
       </entry>
       <entry key="EventScreenpreview">
         <State>
@@ -33,9 +36,6 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2023-06-15T07:26:34.012855Z" />
         </State>
-      </entry>
-      <entry key="MessageScreenPreview">
-        <State />
       </entry>
       <entry key="PReview">
         <State>
@@ -64,12 +64,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_33.avd" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_5_API_32.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2023-06-15T20:59:51.096371Z" />
+          <timeTargetWasSelectedWithDropDown value="2023-06-17T20:12:03.066689Z" />
         </State>
       </entry>
     </value>

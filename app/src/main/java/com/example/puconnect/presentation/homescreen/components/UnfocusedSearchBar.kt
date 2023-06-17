@@ -20,7 +20,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -36,6 +38,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.vectorResource
@@ -58,6 +61,7 @@ fun UnfocusedSearchBar(
     onTextChange: (String) -> Unit,
    // onClick: () -> Unit,
 ) {
+    val screenWidth = LocalConfiguration.current.screenWidthDp
 
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -66,7 +70,7 @@ fun UnfocusedSearchBar(
     Log.d("VV", "$isKeyboardOpen")
 
     val textFieldSize by animateFloatAsState(
-        targetValue = if (isKeyboardOpen) 1f else 0.72f
+        targetValue = if (isKeyboardOpen) 0.774f else 0.651f
     )
 
 
@@ -83,8 +87,6 @@ fun UnfocusedSearchBar(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-
-
             AnimatedVisibility(
                 visible = isKeyboardOpen,
                 enter = slideInHorizontally(
@@ -97,7 +99,8 @@ fun UnfocusedSearchBar(
                 )
             ) {
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(0.5f)
                 ) {
                     Icon(
                         modifier = Modifier.clickable { keyboardController?.hide() },
@@ -117,7 +120,7 @@ fun UnfocusedSearchBar(
                     value = searchText,
                     onValueChange = { onTextChange(it) },
                     modifier = Modifier
-                        .fillMaxWidth(textFieldSize)//0.72f
+                        .width((screenWidth*textFieldSize).dp)//0.72f
                         .background(color = Color.Transparent)
                         .animateContentSize(
                             animationSpec = tween(durationMillis = 400)
@@ -133,8 +136,6 @@ fun UnfocusedSearchBar(
                         containerColor = Color.Transparent,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedLabelColor = Color.Transparent,
-                        textColor = Color.Gray,
-                        placeholderColor = textFieldPlaceholder,
                         disabledIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent
                     ),
@@ -161,7 +162,8 @@ fun UnfocusedSearchBar(
             }
 
     Row(
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.requiredWidth(96.dp)
     ) {
 
 

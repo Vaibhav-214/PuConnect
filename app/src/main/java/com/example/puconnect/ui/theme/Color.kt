@@ -24,4 +24,4 @@ val money2Color = Color(0xff09BA00)
 
 val chatGptcolor = Color(0xff00A67E)
 
-val swipeGreen = Color(0xff16db65)
+val swipeGreen = Color(0xff01C500)

@@ -161,7 +161,8 @@ fun CreateDiscussion(
 
                         DropDownChip(
                             onClick = {},
-                            modifier = Modifier.menuAnchor()
+                            modifier = Modifier.menuAnchor(),
+                            isExpanded = isExapanded
                         )
 
                         ExposedDropdownMenu(
@@ -240,23 +241,6 @@ fun CreateDiscussion(
             }
 
         }
-//        Button(
-//            colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-//            shape = RoundedCornerShape(4.dp),
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(start = 20.dp , end = 20.dp , bottom = 20.dp),
-//            onClick = { /*TODO*/ }) {
-//            Text(
-//                fontFamily = gilroy,
-//
-//                text = "Post",
-//                fontWeight = FontWeight.W500,
-//                fontSize = 14.sp,
-//                lineHeight = 16.8.sp,
-//                color = Color.White
-//            )
-//        }
 
         SwipeButton()
     }
@@ -267,6 +251,7 @@ fun CreateDiscussion(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DropDownChip(
+    isExpanded: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -292,7 +277,8 @@ fun DropDownChip(
         trailingIcon = {
             Icon(
                 modifier = Modifier.size(12.dp),
-                imageVector = ImageVector.vectorResource(id = R.drawable.vector),
+                imageVector = ImageVector
+                    .vectorResource(id = if (isExpanded) R.drawable.caretup else R.drawable.vector),
                 contentDescription = null)
         }
     )
