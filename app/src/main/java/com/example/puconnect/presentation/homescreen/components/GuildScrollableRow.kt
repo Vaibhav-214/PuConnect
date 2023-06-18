@@ -74,8 +74,9 @@ fun GuildItem(
 
     Box(
         modifier = Modifier
-            .width(61.dp)
-            .height(69.dp)
+            .width(73.dp)
+
+            .height(75.dp)
     ) {
 
 
@@ -101,7 +102,7 @@ fun GuildItem(
             modifier = Modifier.align(Alignment.BottomCenter),
             text = guildName,
             fontFamily = gilroy,
-            fontSize = 10.sp,
+            fontSize = 12.sp,
             lineHeight = 12.13.sp,
             color = Color.Black
         )

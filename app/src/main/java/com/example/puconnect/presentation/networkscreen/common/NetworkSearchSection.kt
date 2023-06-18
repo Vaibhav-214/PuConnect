@@ -106,7 +106,7 @@ fun NetworkSearchSection(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
-            CustomButton(title = "All Locations", onClick = {}, modifier = Modifier.weight(0.5f) )
+            CustomButton(title = "All Faculties", onClick = {}, modifier = Modifier.weight(0.5f) )
 
             Spacer(modifier = Modifier.width(12.dp))
 

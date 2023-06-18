@@ -40,16 +40,16 @@ fun NetworkUserInfoSec1(
     navController: NavHostController,
     networkUserData: NetworkUserData
 ) {
-    Row (
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(40.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
-    ){
-        Row (
+    ) {
+        Row(
             verticalAlignment = Alignment.CenterVertically,
-            ) {
+        ) {
             Image(
                 modifier = Modifier
                     .size(40.dp)
@@ -74,7 +74,7 @@ fun NetworkUserInfoSec1(
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
-                
+
 
                 Row(
                     modifier = Modifier,
@@ -106,14 +106,15 @@ fun NetworkUserInfoSec1(
         //Spacer(modifier = Modifier.weight(screenWidth*0.174f))
 
         CustomButton2(onClick = {
-                                navController
-                                    .navigate(Destinations
-                                        .DirectMessageScreen
-                                        .createRoute(
-                                            name = networkUserData.name,
-                                            photoId = networkUserData.profilePic.toString()
-                                        )
-                                    )
+            navController
+                .navigate(
+                    Destinations
+                        .DirectMessageScreen
+                        .createRoute(
+                            name = networkUserData.name,
+                            photoId = networkUserData.profilePic.toString()
+                        )
+                )
         }, title = "Message")
 
 
@@ -123,5 +124,5 @@ fun NetworkUserInfoSec1(
 @Preview(showSystemUi = false, showBackground = true)
 @Composable
 fun UserInfoPreview() {
-   // NetworkUserInfoSec1(networkUserData = netUser1)
+    // NetworkUserInfoSec1(networkUserData = netUser1)
 }

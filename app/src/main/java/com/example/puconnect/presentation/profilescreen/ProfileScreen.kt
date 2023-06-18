@@ -54,9 +54,12 @@ fun ProfileScreen(
         
         VerticalSpacer(height = 19)
 
-        ProfileSection()
+        ProfileSection(onEditProfileClick = {navController.navigate(Destinations.EditProfileScreen.route)})
 
-        ProfileScreenSkillSection(onEditClick = {navController.navigate(Destinations.EditSkillsScreen.route)})
+        ProfileScreenSkillSection(
+            onEditClick = {navController.navigate(Destinations.EditSkillsScreen.route)},
+            onEdit2Click = {navController.navigate(Destinations.EditProfileScreen.route)}
+            )
 
 
 
@@ -66,7 +69,9 @@ fun ProfileScreen(
 
 
 @Composable
-fun ProfileSection() {
+fun ProfileSection(
+    onEditProfileClick: () -> Unit
+) {
     Box (
         modifier = Modifier
             .fillMaxWidth()
@@ -91,7 +96,8 @@ fun ProfileSection() {
                 .height(32.dp)
                 .width(90.dp)
                 .background(shape = RoundedCornerShape(32.dp), color = Color.Black)
-                .align(Alignment.TopEnd),
+                .align(Alignment.TopEnd)
+                .clickable { onEditProfileClick() },
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -174,6 +180,7 @@ fun ProfileSection() {
 @Composable
 fun ProfileScreenSkillSection(
     onEditClick: () -> Unit,
+    onEdit2Click: () -> Unit,
 ) {
     LazyColumn() {
         item {
@@ -229,7 +236,7 @@ fun ProfileScreenSkillSection(
         }
 
         item {
-            SkillCircles()
+            SkillCircles(onEdit2Click = {onEdit2Click()})
         }
 
 
@@ -237,14 +244,16 @@ fun ProfileScreenSkillSection(
 }
 
 @Composable
-fun SkillCircles() {
+fun SkillCircles(
+    onEdit2Click: () -> Unit
+) {
     Column (
         modifier = Modifier.fillMaxWidth()
     ){
         VerticalSpacer(height = 24)
         Row (
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             
@@ -259,7 +268,7 @@ fun SkillCircles() {
         Row (
             modifier = Modifier.fillMaxWidth(),
 
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
@@ -271,13 +280,15 @@ fun SkillCircles() {
 
         VerticalSpacer(height = 24)
 
-        AboutMeSection()
+        AboutMeSection(onEdit2Click = {onEdit2Click()})
 
     }
 }
 
 @Composable
-fun AboutMeSection() {
+fun AboutMeSection(
+    onEdit2Click: () -> Unit
+) {
 
     Column (
         modifier = Modifier.fillMaxWidth(),
@@ -304,7 +315,7 @@ fun AboutMeSection() {
                         shape = RoundedCornerShape(32.dp),
                         color = textFieldBorder,
                         width = (0.25).dp
-                    ),
+                    ).clickable { onEdit2Click() },
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -426,7 +437,7 @@ fun AboutMeSection() {
                         shape = RoundedCornerShape(32.dp),
                         color = textFieldBorder,
                         width = (0.25).dp
-                    ),
+                    ).clickable { onEdit2Click() },
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {

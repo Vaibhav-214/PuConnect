@@ -45,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.puconnect.R
 import com.example.puconnect.mockdata.home.guildList
 import com.example.puconnect.presentation.common.BottomOutlineTextField
@@ -82,7 +83,9 @@ fun CreateDiscussion(
     }
 
     Column (
-        modifier = Modifier.fillMaxSize().padding(bottom = 50.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 50.dp),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
 
@@ -173,13 +176,14 @@ fun CreateDiscussion(
                                     color = textFieldBorder,
                                     width = (0.5).dp
                                 )
-                                .clip(RoundedCornerShape(10.dp))
+
                                 .background(
                                     shape = RoundedCornerShape(10.dp),
                                     color = Color.White
                                 )
-                                .width(134.dp)
+                                .width(140.dp)
                                 .padding(horizontal = 10.dp)
+                                .clip(RoundedCornerShape(10.dp))
                             ,
                             expanded = isExapanded,
                             onDismissRequest = { isExapanded = false }
@@ -298,8 +302,8 @@ fun GuildItemChip2(
 
         AssistChip(
             modifier = modifier
-                .height(22.dp)
-                .width(114.dp),
+                .height(30.dp)
+                .width(140.dp),
             shape = RoundedCornerShape(31.dp),
             onClick = { onClick() },
             label = {
@@ -308,7 +312,7 @@ fun GuildItemChip2(
                     color = Color.Black,
                     fontFamily = gilroy,
                     fontWeight = FontWeight.W500,
-                    fontSize = 8.sp,
+                    fontSize = 12.sp,
                     lineHeight = 9.7.sp
                 ) },
             border = AssistChipDefaults.assistChipBorder(
@@ -318,13 +322,13 @@ fun GuildItemChip2(
             leadingIcon = {
                 Box(
                     modifier = Modifier
-                        .size(14.dp)
+                        .size(20.dp)
                         .clip(CircleShape)
                         .background(color = Color.Black),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        modifier = Modifier.size(8.dp),
+                        modifier = Modifier.size(10.dp),
                         imageVector = ImageVector.vectorResource(id = iconId),
                         contentDescription = "code guild",
                         tint = Color.White
@@ -341,5 +345,5 @@ fun GuildItemChip2(
 @Preview(showSystemUi = false, showBackground = true)
 @Composable
 fun CreateDiscussionPreview() {
-    //CreateDiscussion()
+    CreateDiscussion(navController = rememberNavController())
 }

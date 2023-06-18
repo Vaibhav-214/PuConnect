@@ -24,6 +24,7 @@ import com.example.puconnect.presentation.messagescreen.MessageScreen
 import com.example.puconnect.presentation.networkscreen.NetworkScreen
 import com.example.puconnect.presentation.notificationscreen.NewMessagesScreen
 import com.example.puconnect.presentation.notificationscreen.NotificationScreen
+import com.example.puconnect.presentation.profilescreen.EditProfileScreen
 import com.example.puconnect.presentation.profilescreen.ProfileScreen
 import com.example.puconnect.presentation.profilescreen.SkillCircles
 import com.example.puconnect.presentation.profilescreen.SkillsScreen
@@ -345,6 +346,29 @@ fun BottomNavGraph(navController: NavHostController, padding: PaddingValues) {
             }
         ) {
            SkillsScreen(navController = navController)
+        }
+
+        composable(
+            route = Destinations.EditProfileScreen.route,
+            exitTransition = {
+                slideOutHorizontally (
+                    animationSpec = tween(
+                        durationMillis = 300
+                    ),
+                    targetOffsetX = {1000}
+                ) + fadeOut(animationSpec = tween(300))
+
+            },
+            enterTransition = {
+                slideInHorizontally (
+                    animationSpec = tween(
+                        durationMillis = 300
+                    ),
+                    initialOffsetX = {1000}
+                ) + fadeIn(animationSpec = tween(300))
+            }
+        ) {
+           EditProfileScreen(navController = navController)
         }
 
 
